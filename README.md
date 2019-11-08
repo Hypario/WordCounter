@@ -4,5 +4,5 @@ L'utilisateur veut pouvoir à partir d'un texte, afficher le nombre de mots, de 
 
 Schema du besoin :
 
-[!schema](./schema.png)
+![Schema](./schema.png)
 
