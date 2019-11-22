@@ -12,7 +12,8 @@
 <body>
 
 	<form name="compteur" method="post" action="counter.php">
-        Entrez votre texte : <input type="text" name="text"/><br/>
+        Entrez votre texte : <br/>
+        <textarea type="text" name="text" rows="20" cols="100"></textarea><br/>
         <input type="submit" name="valider" value="Envoyer"/>
     </form>
 
