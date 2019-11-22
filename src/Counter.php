@@ -12,7 +12,7 @@ class Counter
      */
     public function wordCount(string $text): int
     {
-        $words = array_filter(explode(" ", preg_replace("/[^\w'+]/", " ", $text)));
+        $words = array_filter(explode(" ", $this->sanitize($text)));
         return count($words);
     }
 
@@ -29,7 +29,7 @@ class Counter
     public function getOccurrences(string $text): array
     {
         $occurrences = [];
-        $words = array_filter(explode(" ", preg_replace("/[^\w'+]/", " ", $text)));
+        $words = array_filter(explode(" ", $this->sanitize($text)));
         foreach ($words as $word) {
             if (array_key_exists(strtolower($word), $occurrences)) {
                 $occurrences[strtolower($word)] += 1;
@@ -38,6 +38,18 @@ class Counter
             }
         }
         return $occurrences;
+    }
+
+    /**
+     * remove all punctuation
+     *
+     * @param string $text
+     * @return string
+     */
+    private function sanitize(string $text): string
+    {
+        $pattern = "/[^\w'àâçéèêëîïôûùüÿñæœ]+/";
+        return preg_replace($pattern, " ", $text);
     }
 
 }
