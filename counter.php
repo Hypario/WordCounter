@@ -13,7 +13,7 @@
 
 	<form name="compteur" method="post" action="counter.php">
         Entrez votre texte : <br/>
-        <textarea type="text" name="text" rows="20" cols="100"></textarea><br/>
+        <textarea type="text" name="text" rows="20" cols="100"><?php if (isset($_POST['text'])) { echo $_POST['text']; } ?></textarea><br/>
         <input type="submit" name="valider" value="Envoyer"/>
     </form>
 
