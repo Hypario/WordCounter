@@ -1,3 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Compteur GSI</title>
+  <meta name="author" content="DONNE Dylan, DUTERTE Fabien, DASSONNEVILLE Virgile">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+
+	<form name="compteur" method="post" action="counter.php">
+        Entrez votre texte : <input type="text" name="text"/><br/>
+        <input type="submit" name="valider" value="Envoyer"/>
+    </form>
+
+</body>
+
+</html>
+
 <?php 
 
 //$mytext = "Finalement il revint sur les lèvres la flèche acérée et légère qui vole droit au but. Demande-leur s'ils l'emportent, et qui furent très partagés, comme le paysage qui les enchante, parce que la princesse vous expliquera elle-même. Bouffon, tu vas encore attraper froid, et on vexait son orgueil en sera consolé, mais son ombre même.";
