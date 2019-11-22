@@ -47,9 +47,8 @@ function sentenceCount($text) {
 if(isset($_POST['text']) && !empty($_POST['text'])) {
 
 	$mytext = $_POST['text'];
-	echo "Il y a " . wordCount($mytext) . " mots" . PHP_EOL;
-	echo "et " . sentenceCount($mytext) . " phrases." . PHP_EOL;
+	echo "<p>Il y a " . wordCount($mytext) . " mots et " . sentenceCount($mytext) . " phrases.</p>";
 	foreach ($occurences as $mot => $occurences) {
-		echo "Le mot $mot apparaît $occurences fois" . PHP_EOL;
+		echo "<p>Le mot $mot apparaît $occurences fois</p>";
 	}
 }
