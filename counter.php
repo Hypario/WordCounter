@@ -27,7 +27,7 @@ $occurences = [];
 
 function wordCount($text) {
 	global $occurences;
-	$words = explode(" ", $text);
+	$words = array_filter(explode(" ", preg_replace("/[^\w'+]/", " ", $text)));
 	foreach ($words as $word) {
 		if (array_key_exists(strtolower($word), $occurences)) {
 			$occurences[strtolower($word)] += 1;
