@@ -1,4 +1,9 @@
 {
     "name": "iutlens/gsi-compteur",
+    "autoload": {
+        "psr-4": {
+            "IUTLens\\": "src/"
+        }
+    },
     "require": {}
 }
