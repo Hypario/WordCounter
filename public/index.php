@@ -12,20 +12,18 @@
 
 </head>
 
-<body class="d-inline-flex justify-content-center flex-column w-100">
-	<div class="col-sm-12 col-md-8 col-lg-6">
-		<form class="d-inline-flex justify-content-center flex-column w-100" name="compteur" method="post" action="index.php">
-	        Entrez votre texte : <br/>
-	        <textarea class="w-100" type="text" name="text" rows="20"><?php if (isset($_POST['text'])) { echo $_POST['text']; } ?></textarea><br/>
-	        <input class="btn btn-success" type="submit" name="valider" value="Envoyer"/>
+<body class="d-inline-flex justify-content-center align-items-center flex-column w-100">
+	<div class="col-sm-12 col-md-8 col-lg-6 mb-2">
+		<form class="d-inline-flex justify-content-center align-items-center flex-column w-100" name="compteur" method="post" action="index.php">
+	        <h1>Entrez votre texte : </h1>
+	        <textarea class="w-100" type="text" name="text" rows="20"><?php if (isset($_POST['text'])) { echo $_POST['text']; } ?></textarea>
+	        <input class="btn btn-success w-100" type="submit" name="valider" value="Envoyer"/>
 	    </form>
 	</div>
-
-
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/bootstrap-bundle.min.js"></script>
-
 </body>
+
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-bundle.min.js"></script>
 
 </html>
 
@@ -54,9 +52,26 @@ function sentenceCount($text) {
 if(isset($_POST['text']) && !empty($_POST['text'])) {
 
 	$mytext = $_POST['text'];
-	echo "<p>Il y a " . wordCount($mytext) . " mots et " . sentenceCount($mytext) . " phrases.</p>";
-	echo "<table class='table col-sm-12 col-md-8 col-lg-6'>";
-	echo "<thead>";
+
+	// words and sentences
+	echo "<table class='table col-sm-12 col-md-8 col-lg-6 mt-2'>";
+	echo "<thead class='bg-primary text-white'>";
+	echo    "<tr>";
+	echo      "<th scope='col'>Mots</th>";
+	echo      "<th scope='col'>Phrases</th>";
+	echo    "</tr>";
+	echo  "</thead>";
+	echo "<tbody>";
+	echo "<tr>";
+	echo  "<td scope='col'>" . wordCount($mytext) . "</td>";
+	echo  "<td scope='col'>" . sentenceCount($mytext) . "</td>";
+	echo "</tr>";
+	echo "</tbody>";
+	echo "</table>";
+
+	// occurences
+	echo "<table class='table col-sm-12 col-md-8 col-lg-6 mt-2'>";
+	echo "<thead class='bg-info'>";
 	echo    "<tr>";
 	echo      "<th scope='col'>Mot</th>";
 	echo      "<th scope='col'>Occurences</th>";
