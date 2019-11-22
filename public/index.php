@@ -14,6 +14,4 @@ if (isset($_POST['text']) && !empty($_POST['text'])) {
     $occurrences = $counter->getOccurrences($text);
 }
 
-$time_end = microtime(true);
-
 require ROOT . '/views/index.php';
