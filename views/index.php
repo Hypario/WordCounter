@@ -14,10 +14,15 @@
 <body class="d-inline-flex justify-content-center align-items-center flex-column w-100">
 <div class="col-sm-12 col-md-8 col-lg-6">
     <form class="d-inline-flex justify-content-center align-items-center flex-column w-100 mb-4" name="compteur"
-          method="post" action="index.php">
+          method="post" action="index.php" enctype="multipart/form-data">
         <label for="text">Entrez votre texte : </label>
-        <textarea class="w-100" type="text" name="text" id="text" rows="20"><?php if(isset($text)) echo $text; ?></textarea>
-        <input class="btn btn-success w-100" type="submit" name="valider" value="Envoyer"/>
+        <textarea class="w-100" type="text" name="text" id="text"
+                  rows="20"><?php if (isset($text)) echo $text; ?></textarea>
+
+        <label for="file">Et/ou uploadez un fichier :</label>
+        <input type="file" id="file" name="file">
+
+        <input class="btn btn-success w-100 mt-3" type="submit" name="valider" value="Envoyer"/>
     </form>
 
     <?php if (isset($nbWords) && isset($nbSentences) && isset($occurrences)) : ?>
@@ -38,20 +43,20 @@
         </table>
 
         <table class='table'>
-        <thead class='bg-info'>
-        <tr>
-            <th scope='col'>Mot</th>
-            <th scope='col'>Occurences</th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php foreach ($occurrences as $mot => $occurrence): ?>
+            <thead class='bg-info'>
             <tr>
-                <td scope='row'><?= $mot; ?></td>
-                <td scope="row"><?= $occurrence; ?></td>
+                <th scope='col'>Mot</th>
+                <th scope='col'>Occurences</th>
             </tr>
-        <?php endforeach; ?>
-        </tbody>
+            </thead>
+            <tbody>
+            <?php foreach ($occurrences as $mot => $occurrence): ?>
+                <tr>
+                    <td scope='row'><?= $mot; ?></td>
+                    <td scope="row"><?= $occurrence; ?></td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
         </table>
     <?php endif; ?>
 

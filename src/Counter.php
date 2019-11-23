@@ -16,9 +16,14 @@ class Counter
         return count($words);
     }
 
-    public function sentenceCount($text)
+    /**
+     * @param $text
+     * @return int
+     */
+    public function sentenceCount(string $text): int
     {
-        return count(preg_split("/\.(\\s|\n|$)/", $text, -1, PREG_SPLIT_NO_EMPTY));
+        // doesn't need to sanitize text (if we do, the count wont be correct and we can't ignore points)
+        return count(preg_split("/\.(\\s|\n|$)*/", $text, -1, PREG_SPLIT_NO_EMPTY));
     }
 
     /**
